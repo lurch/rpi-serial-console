@@ -23,11 +23,11 @@ To display whether the serial console is currently enabled or not, simply run:
 
 To enable the serial console, simpy run:
 
-    rpi-serial-console enable
+    sudo rpi-serial-console enable
 
 To disable the serial console, simpy run:
 
-    rpi-serial-console disable
+    sudo rpi-serial-console disable
 
 What could be easier than that?! ;-) After enabling or disabling the
 serial console you'll need to reboot Linux for it to take effect.
@@ -57,7 +57,7 @@ a baud rate of 115200. But if for some reason you want to change the baud rate
 the serial console uses, you can supply this as a second argument. For example
 to set the serial console to a baudrate of 57600, you'd use:
 
-    rpi-serial-console enable 57600
+    sudo rpi-serial-console enable 57600
 
 and then reboot. If the serial console is already enabled, and you want to
 change the baud rate, then simply use rpi-serial-console to disable it, enable
