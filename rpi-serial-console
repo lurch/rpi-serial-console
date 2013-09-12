@@ -1,18 +1,18 @@
 #!/bin/bash
 # Script by AndrewS to make it easier to enable/disable the serial console
 # (which allows the UART to be used by other programs)
-# version 1.0 - initial release
+# version 1.1 - better error handling
 ACTION=$1
 BAUDRATE=${2:-115200}
 UART=ttyAMA0
 CMDLINE=/boot/cmdline.txt
 INITTAB=/etc/inittab
 if [[ ! -f "$CMDLINE" ]]; then
-  echo "$CMDLINE is missing"
+  echo "$CMDLINE is missing" 1>&2
   exit 1
 fi
 if [[ ! -f "$INITTAB" ]]; then
-  echo "$INITTAB is missing"
+  echo "$INITTAB is missing" 1>&2
   exit 1
 fi
 CMDLINE_STATUS=disabled
@@ -28,11 +28,11 @@ if [[ $(grep $UART /proc/cmdline) ]]; then
   LIVE_STATUS=enabled
 fi
 if [[ $CMDLINE_STATUS != $INITTAB_STATUS ]]; then
-  echo "Inconsistent status! $CMDLINE is $CMDLINE_STATUS, but $INITTAB is $INITTAB_STATUS"
+  echo "Inconsistent status! $CMDLINE is $CMDLINE_STATUS, but $INITTAB is $INITTAB_STATUS" 1>&2
   exit 1
 fi
 if [[ "$ACTION" != "enable" && "$ACTION" != "disable" && "$ACTION" != "status" ]]; then
-  echo "Missing / incorrect command-line argument. Use enable, disable or status"
+  echo "Missing / incorrect command-line argument. Use enable, disable or status" 1>&2
   exit 1
 fi
 
@@ -44,7 +44,7 @@ if [[ $ACTION == status ]]; then
   fi
 else
   if [[ $EUID -ne 0 ]]; then
-    echo "Serial console can only be ${ACTION}d by root user"
+    echo "Serial console can only be ${ACTION}d by root user" 1>&2
     exit 1
   fi
   if [[ ${ACTION}d == $CMDLINE_STATUS ]]; then
