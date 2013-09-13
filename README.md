@@ -21,11 +21,11 @@ To display whether the serial console is currently enabled or not, simply run:
 
     rpi-serial-console status
 
-To enable the serial console, simpy run:
+To enable the serial console, simply run:
 
     sudo rpi-serial-console enable
 
-To disable the serial console, simpy run:
+To disable the serial console, simply run:
 
     sudo rpi-serial-console disable
 
