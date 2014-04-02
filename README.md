@@ -33,7 +33,7 @@ What could be easier than that?! ;-) After enabling or disabling the
 serial console you'll need to reboot Linux for it to take effect.
 
 Behind the scenes it automatically edits
-both `/boot/cmdline.txt` and `/etc/innittab`, adding or removing the
+both `/boot/cmdline.txt` and `/etc/inittab`, adding or removing the
 *ttyAMA0* options as necessary. The very first time you run
 rpi-serial-console it automatically creates backup copies of these
 files with a `.bak` extension.
