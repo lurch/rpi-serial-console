@@ -7,6 +7,8 @@ the Raspberry Pi's serial port (UART) to talk to other devices e.g.
 microcontrollers (see <http://elinux.org/RPi_Serial_Connection> for more
 information).
 
+**Note that this script is now partially redundant, as the latest versions of `raspi-config` feature something quite similar already built in.**
+
 Installation
 ------------
 
