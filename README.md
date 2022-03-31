@@ -1,4 +1,4 @@
-**This script is no longer maintained! If it still works for you then great, but I won't be making any further changes to it. It was last edited in 2014, and _many_ parts of the Raspberry Pi ecosystem have changed since then.**
+**This script is no longer maintained! If it still works for you then great, but I won't be making any further changes to it. It was last edited in 2013, and _many_ parts of the Raspberry Pi ecosystem have changed since then.**
 
 rpi-serial-console
 ==================
